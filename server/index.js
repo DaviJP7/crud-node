@@ -1,23 +1,21 @@
+require('dotenv').config()
 const express = require('express')
 const app = express();
-const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('dbcrud', 'root', '010200', {
-    host: 'localhost',
-    dialect: 'mysql'
-});
 const port = 3001;
+const { USERDB, PASSDB } = process.env
+const mongoose = require('mongoose')
 
-try {
-    sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-} catch (error) {
-    console.error('Unable to connect to the database:', error);
-}
+// app config
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
+// routes
+app.use(require('./routes/web'))
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-})
-
+mongoose.connect(
+    `mongodb+srv://${USERDB}:${PASSDB}@cluster0.rumrbsa.mongodb.net/?retryWrites=true&w=majority`
+).then(() => {
+    console.log('DB connected successfully')
+}).catch((error) => console.log(error))
 
 app.listen(port, () => console.log("Server Started in: 127.0.0.1:" + port))
