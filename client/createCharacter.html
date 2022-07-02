@@ -5,25 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/create_character.js" defer></script>
   <title>Add Character</title>
 </head>
 <body>
-  <form class="__container">
-    <h1 class="__title">Add your character</h1>
-
-    <div class="__input_group">
-      <label for="input_content">Text Content:</label>
-      <input type="text" id="input_content">
-    </div>
-
-    <div class="__input_group">
-      <label id="label_input_file" for="input_file">Add your character Image</label>
-      <input type="file" name="" id="input_file">
-    </div>
-
-    <button type="submit" class="__submit_button">
-      Create character
-    </button>
-  </form>
+  <div class="__container">
+    <form class="__container_wrapper" name="char_registration">
+      <h1 class="__title">Add your character</h1>
+  
+      <div class="__input_group">
+        <label for="content_input">Text Content:</label>
+        <textarea name="content_input" id="content_input" cols="30" rows="10"></textarea>
+      </div>
+  
+      <div class="__input_group">
+        <label id="label_input_file" for="file_input">Add your character Image</label>
+        <input type="file" name="file_input" id="file_input">
+      </div>
+  
+      <button type="submit" class="__submit_button">
+        Create character
+      </button>
+    </form>
+  </div>
 </body>
 </html>
