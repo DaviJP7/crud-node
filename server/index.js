@@ -4,10 +4,12 @@ const app = express();
 const port = 3001;
 const { USERDB, PASSDB } = process.env
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 // app config
-app.use(express.urlencoded({ extended: true }))
+app.use(cors())
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 // routes
 app.use(require('./routes/web'))
