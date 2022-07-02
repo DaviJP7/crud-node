@@ -199,10 +199,11 @@ body {
     }
 
     > #label_input_file {
-      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       background-color: $secondaryColor;
-      padding: 0.5rem 1.2rem;
-      padding-left: 4rem;
+      padding: 0.4rem 1.2rem;
       border-radius: 0.2rem;
       cursor: pointer;
       color: whitesmoke;
@@ -213,18 +214,7 @@ body {
       &:hover {
         background-color: #32bb5b;
       }
-
-      &::before {
-        position: absolute;
-        left: 12%;
-        top: 55%;
-        transform: translate(-50%, -50%);
-        content: url(../img/picture.svg);
-        width: auto;
-        display: inline-block;
-      }
     }
-
   }
 
   .file_group {
@@ -253,6 +243,10 @@ body {
         transform: translate(-50%, -50%);
         width: 25px;
       }
+    }
+
+    .__selected_picture {
+      width: 30px;
     }
   }
 
