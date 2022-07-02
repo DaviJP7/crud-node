@@ -8,8 +8,7 @@
 
 body {
   width: 100%;
-  height: 100%;
-  overflow-y: hidden;
+  min-height: 100vh;
 }
 
 .container {
@@ -126,4 +125,70 @@ body {
   font-size: 14pt;
   font-weight: 600;
   color: #6ecf42;
+}
+
+.__add-button {
+  max-width: 150px;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background-color: #6ecf42;
+}
+
+.__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Nunito", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 500px;
+  width: 100%;
+  border: 2px solid #6ecf42;
+  border-radius: 0.3rem;
+  padding: 1rem;
+}
+.__container .__title {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 1.6rem);
+}
+.__container .__input_group > input[type=text] {
+  padding: 0.5rem;
+  border: 1px solid #31a252;
+  transition: 0.2s;
+}
+.__container .__input_group > input[type=text]:hover {
+  border-color: #6ecf42;
+}
+.__container .__input_group > input[type=text]:focus {
+  border-color: #6ecf42;
+}
+.__container .__input_group > input[type=file] {
+  display: none;
+}
+.__container .__input_group > #label_input_file {
+  background-color: #31a252;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.__container .__input_group > #label_input_file:hover {
+  filter: brightness(1.1);
+}
+.__container .__submit_button {
+  padding: 0.8rem 1.5rem;
+  background-color: #31a252;
+  border: 1px solid #6ecf42;
+  border-radius: 0.2rem;
+  color: whitesmoke;
+  font-size: clamp(1rem, 5vw, 1.2rem);
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+.__container .__submit_button:hover {
+  filter: brightness(1.1);
 }/*# sourceMappingURL=style.css.map */
