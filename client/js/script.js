@@ -13,10 +13,10 @@ data.forEach((v, i) => {
     resultBox.innerHTML += html
 })
 
-inputSearch.addEventListener('keydown', (e) => {
+inputSearch.addEventListener('keyup', (e) => {
     let inputValue = e.target.value.toLowerCase();
     let findValue = data.filter((v) => {
-        return v.content.toLowerCase().includes(inputValue)
+        return v.content.toLowerCase().replace(/<[^>]*>?/gm, '').includes(inputValue)
     })
     resultBox.innerHTML = ''
     findValue.forEach(v => {
