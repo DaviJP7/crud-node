@@ -24,8 +24,6 @@ router.post('/store', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error })
     }
-
-    res.json('<h1>Hello World</h1>')
 })
 
 // Read
