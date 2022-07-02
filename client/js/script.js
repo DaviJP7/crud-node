@@ -3,28 +3,33 @@ import { data } from './data.js';
 const resultBox = document.querySelector('div.__result-box');
 const inputSearch = document.querySelector('input.input-search');
 
-data.forEach((v, i) => {
-    let html = `
-    <div class="__result-content">
-    <img src="${v.img}" alt="" class="__result-img">
-    <span class="__result-span">${v.content}</span>
-    </div>`
+// data.forEach((v, i) => {
+//     let html = `
+//     <div class="__result-content">
+//     <img src="${v.img}" alt="" class="__result-img">
+//     <span class="__result-span">${v.content}</span>
+//     </div>`
 
-    resultBox.innerHTML += html
-})
+//     resultBox.innerHTML += html
+// })
 
 inputSearch.addEventListener('keyup', (e) => {
     let inputValue = e.target.value.toLowerCase();
-    let findValue = data.filter((v) => {
-        return v.content.toLowerCase().replace(/<[^>]*>?/gm, '').includes(inputValue)
-    })
-    resultBox.innerHTML = ''
-    findValue.forEach(v => {
-        let html = `
-    <div class="__result-content">
-    <img src="${v.img}" alt="" class="__result-img">
-    <span class="__result-span">${v.content}</span>
-    </div>`
-        resultBox.innerHTML += html;
-    })
+    if (inputValue != '') {
+
+        let findValue = data.filter((v) => {
+            return v.content.toLowerCase().replace(/<[^>]*>?/gm, '').includes(inputValue)
+        })
+        resultBox.innerHTML = ''
+        findValue.forEach(v => {
+            let html = `
+            <div class="__result-content">
+            <img src="${v.img}" alt="" class="__result-img">
+            <span class="__result-span">${v.content}</span>
+            </div>`
+            resultBox.innerHTML += html;
+        })
+    } else {
+        resultBox.innerHTML = ''
+    }
 })
