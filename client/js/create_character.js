@@ -36,7 +36,7 @@ form.addEventListener("submit", e => {
     const { currentTarget: { result: imageBase64 } } = file
 
     try {
-      const { status } = await fetch('http://localhost:3001/store', {
+      const { status } = await fetch('http://127.0.0.1:3001/store', {
         headers: { 'Content-Type': 'application/json'},
         method: 'POST',
         body: JSON.stringify({
@@ -46,10 +46,11 @@ form.addEventListener("submit", e => {
       })
 
       if (status === 201) {
-        console.log('foi')
-      }
+        content_input.value = ''
+        file_input.files = null
 
-      console.log(status)
+        window.location.replace('http://127.0.0.1:5500/client')
+      }
     } catch (error) {
       alert(error.message)
     }
