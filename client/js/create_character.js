@@ -2,6 +2,8 @@ const form = document.forms.item('char_registration')
 const removeImage = document.getElementById('remove_image')
 const { content_input, file_input } = form
 
+const reader = new FileReader()
+
 removeImage.addEventListener('click', () => {
   file_input.files = null
   const labelInputFile = file_input.previousElementSibling
@@ -15,8 +17,18 @@ file_input.addEventListener('change', function () {
 
     labelInputFile.textContent = fileName
     removeImage.style.display = 'block'
+
+    reader.readAsDataURL(file_input.files[0])
+    reader.onload = (file) => {
+      const { currentTarget: { result: imageBase64 } } = file
+
+      labelInputFile.innerHTML = `
+        <img src="${imageBase64}" class="__selected_picture">
+        ${fileName}
+      `
+    }
   } else {
-    console.log('mudou')
+    return;
   }
 })
 
@@ -27,8 +39,6 @@ form.addEventListener("submit", e => {
     alert('Add an image file!')
     return ''
   }
-
-  const reader = new FileReader()
 
   reader.readAsDataURL(file_input.files[0])
 
