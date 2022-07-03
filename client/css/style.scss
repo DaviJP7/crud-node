@@ -96,14 +96,6 @@ body {
     border-radius: 5px;
     padding: 20px 10px;
     box-shadow: 0 0 2px 1px #000;
-    &:hover::after {
-      content: "❌";
-      background-color: #f1f1f1;
-      padding: 5px;
-      border-radius: 50%;
-      font-size: 15px;
-      cursor: pointer;
-    }
 
     .__result-img {
       width: 80px;
@@ -125,6 +117,19 @@ body {
         font-weight: 600;
         color: $primaryColor;
       }
+    }
+
+    button.__delete {
+      display: none;
+    }
+
+    &:hover button.__delete {
+      display: block;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      background: transparent;
+      font-size: 20pt;
     }
   }
 }

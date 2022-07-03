@@ -12,11 +12,12 @@ window.onload = async () => {
       return ''
     }
 
-    data.forEach(({ content, img}) => {
+    data.forEach(({ content, img, _id }) => {
       let html = `
       <div class="__result-content">
       <img src="${img}" alt="" class="__result-img">
       <span class="__result-span">${content}</span>
+      <button type="button" onclick="destroy('${_id}')" class="__delete">🚮</button>
       </div>`
 
       resultBox.innerHTML += html
@@ -43,19 +44,22 @@ inputSearch.addEventListener('keydown', (e) => {
         <div class="__result-content">
           <img src="${v.img}" alt="" class="__result-img">
           <span class="__result-span">${v.content}</span>
-        </div>`
+          <button type="button" onclick="destroy('${v._id}')" class="__delete">🚮</button>
+        </div > `
 
-        resultBox.innerHTML += html;
+      resultBox.innerHTML += html;
     })
-    } else {
-      apiData.forEach(({ content, img}) => {
-        let html = `
-        <div class="__result-content">
-        <img src="${img}" alt="" class="__result-img">
-        <span class="__result-span">${content}</span>
-        </div>`
+  } else {
+    apiData.forEach(({ content, img, _id }) => {
+      let html = `
+        < div class="__result-content" >
+          <img src="${img}" alt="" class="__result-img">
+            <span class="__result-span">${content}</span>
+            <button type="button" onclick="destroy('${_id}')" class="__delete">🚮</button>
+          </div>`
 
-        resultBox.innerHTML += html
-      })
-    }
+      resultBox.innerHTML += html
+    })
+  }
 })
+

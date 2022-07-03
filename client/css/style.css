@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
 * {
   margin: 0;
@@ -96,14 +95,6 @@ body {
   padding: 20px 10px;
   box-shadow: 0 0 2px 1px #000;
 }
-.__result-box .__result-content:hover::after {
-  content: "❌";
-  background-color: #f1f1f1;
-  padding: 5px;
-  border-radius: 50%;
-  font-size: 15px;
-  cursor: pointer;
-}
 .__result-box .__result-content .__result-img {
   width: 80px;
   height: 80px;
@@ -134,6 +125,17 @@ body {
   font-size: 14pt;
   font-weight: 600;
   color: #6ecf42;
+}
+.__result-box .__result-content button.__delete {
+  display: none;
+}
+.__result-box .__result-content:hover button.__delete {
+  display: block;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: transparent;
+  font-size: 20pt;
 }
 
 .__add_character_button {
