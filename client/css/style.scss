@@ -96,6 +96,15 @@ body {
     border-radius: 5px;
     padding: 20px 10px;
     box-shadow: 0 0 2px 1px #000;
+    &:hover::after {
+      content: "❌";
+      background-color: #f1f1f1;
+      padding: 5px;
+      border-radius: 50%;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
     .__result-img {
       width: 80px;
       height: 80px;
@@ -136,7 +145,7 @@ body {
   transition: 0.2s;
   &:hover {
     background-color: $secondaryColor;
-    color: #FFF;
+    color: #fff;
   }
 }
 
@@ -249,7 +258,6 @@ body {
       width: 30px;
     }
   }
-
 
   .__submit_button {
     padding: 0.6rem 1rem;
