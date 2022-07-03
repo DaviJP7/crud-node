@@ -8,6 +8,7 @@ removeImage.addEventListener('click', () => {
   file_input.files = null
   const labelInputFile = file_input.previousElementSibling
   labelInputFile.textContent = 'Add your character Image'
+  removeImage.style.display = 'none'
 })
 
 file_input.addEventListener('change', function () {
